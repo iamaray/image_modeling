@@ -11,7 +11,7 @@ from .trajectories import make_ddim_teacher_trajectories
 def process_ciphar10(
     output_path: str = 'data/ciphar10_ddpm_teacher_data.pt',
     batch_size: int = 64,
-    timesteps: List[int] = [100, 200, 300, 512],
+    timesteps: List[int] = [128, 256, 384, 512],
     teacher_model: str = 'ddpm'
 ):
 
@@ -52,7 +52,6 @@ def process_ciphar10(
     for idx, (x0, _) in enumerate(train_loader):
         x0 = x0.to(device)
         x_T = torch.randn_like(x0)
-        print(x0.shape)
         trajectory = teacher_funct(x_T, timesteps, pipe, scheduler)
 
         data.append({
