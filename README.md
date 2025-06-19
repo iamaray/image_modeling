@@ -3,5 +3,5 @@ This repo implements the DSNO neural operator architecture from https://arxiv.or
 
 # Commands
 - By default, we are using the cifar-10 as the training data. To process this data into forward trajectories, run `python main.py processing`.
-- To train the model, run `python main.py train epochs <num_epochs>`.
+- To train the model, run `python main.py train --epochs <num_epochs>`.
 
