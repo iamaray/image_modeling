@@ -1,12 +1,12 @@
 import torch
-from data.process_ciphar_10 import process_ciphar10
+from data.process_ciphar_10 import process_cifar10
 import argparse
 
 from dsno.model import DSNO
 from dsno.trainer import train
 
 def process():
-    process_ciphar10(batch_size=64)
+    process_cifar10(batch_size=64)
     
 def train_model(epochs=10):
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
