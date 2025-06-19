@@ -1,0 +1,52 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Data files and folders (but keep processing scripts)
+data/cifar-10-batches-py/
+data/cifar-10-python.tar.gz
+data/*.pt
+data/*.pth
+data/*.pkl
+data/*.npz
+data/*.npy
+data/*.h5
+data/*.hdf5
+
+# Any other dataset folders
+data/*/
+!data/*.py
+
+# Model checkpoints and outputs
+checkpoints/
+outputs/
+runs/
+wandb/
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Virtual environments
+venv/
+env/
+.env
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+
+# Large model files
+*.bin
+*.safetensors
+*.onnx
+
+# Temporary files
+*.tmp
+*.temp 

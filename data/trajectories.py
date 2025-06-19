@@ -19,7 +19,7 @@ def make_ddim_teacher_trajectories(
     """
     
     scheduler.set_timesteps(max(timesteps), device=x_T.device)
-    
+    latents = x_T
     traj = []
     ts_set = set(timesteps)
     
