@@ -1,0 +1,17 @@
+torch>=2.0.0
+torchvision>=0.15.0
+torchaudio>=2.0.0
+diffusers>=0.21.0
+transformers>=4.21.0
+numpy>=1.21.0
+scipy>=1.7.0
+Pillow>=8.3.0
+tqdm>=4.62.0
+packaging>=21.0
+# accelerate>=0.20.0
+# wandb>=0.15.0
+# tensorboard>=2.8.0
+# apex  # Install separately if needed
+# jupyter>=1.0.0
+# matplotlib>=3.5.0
+# seaborn>=0.11.0
