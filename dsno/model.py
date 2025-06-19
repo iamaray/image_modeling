@@ -2,28 +2,7 @@ import torch
 import torch.nn as nn
 import torch.fft
 
-class TCBlock(nn.Module):
-    """
-    Temporal block using Fourier modes for convolution along time axis.
-    """
-    def __init__(self, dim, modes):
-        super().__init__()
-        self.dim = dim
-        self.modes = modes
-        # [in_dim, out_dim, modes]
-        self.weight = nn.Parameter(torch.randn(dim, dim, modes, 2))
-
-    def forward(self, x):
-        # x: [batch, dim, time]
-        # x_ft: [batch, dim, freq]
-        x_ft = torch.fft.rfft(x, dim=-1)
-        out_ft = torch.zeros_like(x_ft)
-        for i in range(self.modes):
-            w = torch.complex(self.weight[:, :, i, 0], self.weight[:, :, i, 1])  # [dim, dim]
-            # x_ft[..., i]: [batch, dim]
-            out_ft[..., i] = x_ft[..., i] @ w.T
-        x = torch.fft.irfft(out_ft, n=x.size(-1), dim=-1)
-        return x
+from .layers import TCBlock
 
 class DSNO(nn.Module):
     """
@@ -43,3 +22,5 @@ class DSNO(nn.Module):
         feat_time = self.tc(feat_flat)                  # [B, hidden, H*W]
         feat = feat_time.view(B, feat.shape[1], H, W)
         return self.proj(feat)                          # [B, C, H, W]
+    
+    
