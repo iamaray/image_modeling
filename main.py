@@ -12,7 +12,7 @@ def train_model(epochs=10):
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model = DSNO()
     train(
-        teacher_data_path='data/ciphar10_ddpm_teacher_data.pt',
+        teacher_data_path='data/cifar10_teacher.pt',
         model=model,
         batch_size=64,
         epochs=epochs,

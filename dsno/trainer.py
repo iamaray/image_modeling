@@ -30,7 +30,7 @@ def train(
     device: str = 'cuda'
 ):
     dataset = TrajectoryDataset(teacher_data_path)
-    loader = DataLoader(dataset, batch_size=batch_size, shuffle=True, num_workers=4, pin_memory=True)
+    loader = DataLoader(dataset, batch_size=batch_size, shuffle=True, pin_memory=True)
 
     pipe = DDPMPipeline.from_pretrained("google/ddpm-cifar10-32")
     scheduler = DDIMScheduler.from_config(pipe.scheduler.config)
