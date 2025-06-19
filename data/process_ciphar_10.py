@@ -36,7 +36,6 @@ def process_ciphar10(
 
     match teacher_model:
         case 'ddpm':
-            # Explicitly use safetensors=False to avoid the safetensors loading issue
             pipe = DDPMPipeline.from_pretrained(
                 "google/ddpm-cifar10-32", use_safetensors=False)
             pipe.unet.to(device)
@@ -61,7 +60,6 @@ def process_ciphar10(
             'trajectory': trajectory.cpu()
         })
 
-        # Add memory cleanup
         del x0, x_T, trajectory
         torch.cuda.empty_cache() if torch.cuda.is_available() else None
 
