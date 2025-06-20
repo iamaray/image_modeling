@@ -79,7 +79,10 @@ def evaluate_model(model_path, device='cuda', num_samples=1000):
     model = model.to(device)
     
     # Load real CIFAR-10 data
-    transform = transforms.Compose([transforms.ToTensor()])
+    transform = transforms.Compose([
+        transforms.ToTensor(),
+        transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])
+    ])
     test_dataset = datasets.CIFAR10(root='data', train=False, transform=transform, download=True)
     test_loader = DataLoader(test_dataset, batch_size=64, shuffle=False)
     
