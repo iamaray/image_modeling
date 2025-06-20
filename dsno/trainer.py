@@ -21,13 +21,18 @@ class TrajectoryDataset(Dataset):
     def __getitem__(self, idx):
         return self.x_T[idx], self.traj[idx]
 
+def save_model(save_path: str, model: DSNO):
+    os.makedirs(os.path.dirname(save_path), exist_ok=True)
+    torch.save(model.state_dict(), save_path)
+
 def train(
     teacher_data_path: str,
     model: DSNO,
     batch_size: int = 64,
     epochs: int = 10,
     lr: float = 1e-4,
-    device: str = 'cuda'
+    device: str = 'cuda',
+    savepath: str='modelsave/cifar_10_dsno.pt'
 ):
     dataset = TrajectoryDataset(teacher_data_path)
     loader = DataLoader(dataset, batch_size=batch_size, shuffle=True, pin_memory=True)
@@ -70,3 +75,6 @@ def train(
             total_loss += loss.item() * B
         avg_loss = total_loss / len(dataset)
         print(f"Epoch {epoch+1}/{epochs}, Loss: {avg_loss:.6f}")
+        
+    if savepath is not None:
+        save_model(save_path=savepath, model=model)    
