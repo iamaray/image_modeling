@@ -1,0 +1,12 @@
+Training Log
+==================================================
+Epoch 1/100, Loss: 18.092656, Time: 38.8s, Total: 38.8s
+Epoch 2/100, Loss: 15.910724, Time: 37.6s, Total: 76.5s
+Epoch 3/100, Loss: 14.745868, Time: 35.7s, Total: 112.1s
+Epoch 4/100, Loss: 14.545203, Time: 37.5s, Total: 149.7s
+Epoch 5/100, Loss: 14.033777, Time: 36.6s, Total: 186.3s
+Epoch 6/100, Loss: 13.093769, Time: 36.6s, Total: 222.8s
+Epoch 7/100, Loss: 11.782936, Time: 37.2s, Total: 260.0s
+Epoch 8/100, Loss: 10.441169, Time: 37.1s, Total: 297.1s
+Epoch 9/100, Loss: 9.540285, Time: 36.0s, Total: 333.1s
+Epoch 10/100, Loss: 8.874635, Time: 38.0s, Total: 371.1s
