@@ -8,6 +8,9 @@ from scipy.linalg import sqrtm
 from diffusers import DDIMScheduler
 import os
 from typing import Optional
+from torchvision.models import inception_v3
+
+from dsno.model import DSNO
 
 def compute_fid(real_features, fake_features):
     """Compute Frechet Inception Distance between real and fake features"""
@@ -72,8 +75,6 @@ def evaluate_model(model_path, device='cuda', num_samples=1000):
     """Comprehensive model evaluation"""
     print(f"Loading model from {model_path}")
     
-    # Load model
-    from dsno.model import DSNO
     model = DSNO()
     model.load_state_dict(torch.load(model_path, map_location=device))
     model = model.to(device)
@@ -108,7 +109,6 @@ def evaluate_model(model_path, device='cuda', num_samples=1000):
     
     # Try to compute FID (requires torchvision inception model)
     try:
-        from torchvision.models import inception_v3
         inception = inception_v3(pretrained=True, transform_input=False)
         inception.fc = torch.nn.Identity()  # Remove final classification layer
         inception = inception.to(device)

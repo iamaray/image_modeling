@@ -50,3 +50,5 @@ env/
 # Temporary files
 *.tmp
 *.temp 
+
+batch_jobs/ 
