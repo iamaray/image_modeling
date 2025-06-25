@@ -1,12 +1,14 @@
 import torch
 import torch.nn as nn
 
-class DistillTrainer(nn.Module):
-    def __init__(self):
-        super().__init__()
-        
+def sct_loss():
+    pass
 
-class ConsistencyTrainer(nn.Module):
-    def __init__(self):
-        super().__init__()
-        
+def distill_loss():
+    pass
+
+def consistency_train():
+    pass
+
+def distill_train():
+    pass

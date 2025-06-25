@@ -49,3 +49,18 @@ class TimeWeight(nn.Module):
         emb = torch.cat([torch.sin(half), torch.cos(half)], dim=-1)
         return self.mlp(emb).squeeze(-1) # (B, )
     
+class AdaDN(nn.Module):
+    def __init__(self):
+        super().__init__()
+        
+class ResBlock(nn.Module):
+    def __init__(self):
+        super().__init__()
+        
+class AttnBlock(nn.Module):
+    def __init__(self):
+        super().__init__()
+
+class UNet32(nn.Module):
+    def __init__(self):
+        super().__init__()
